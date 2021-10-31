@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import Question from "./Question";
 
 function QuestionList(props) {
-  console.log(props);
   return (
-    <div className="flex flex-col justify-center items-center w-screen bg-pink-100">
+    <div className="flex flex-col justify-center items-center w-screen h-full p-5">
       <h3 className="font-bold text-xl">Your Questions</h3>
-      <ul>
+      <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 xl:gap-8">
         {props.questionIds.map((id) => (
           <li key={id}>
             <Question id={id} />

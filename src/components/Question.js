@@ -3,37 +3,30 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 
 function Question(props) {
-  console.log(props)
+  console.log(props);
   const { question } = props;
 
   if (question === null) {
-    return (
-      <p>This question does not exist!</p>
-    )
+    return <p>This question does not exist!</p>;
   }
-  
-  const {
-    name,
-    avatar,
-    optionOne,
-    optionTwo,
-    hasAnswered,
-  } = question;
+
+  const { name, avatar, optionOne } = question;
 
   return (
-    <div className="bg-white my-5 p-5 rounded-xl shadow-xl flex flex-col text-center">
+    <div className="bg-pink-100 my-5 p-5 rounded-xl shadow-xl flex flex-col justify-center text-center h-52">
       <div className="flex items-center justify-between">
-        <img
-          src="/images/Login.png"
-          alt={`Avatar of ${name}`}
-          className="h-16"
-        />
-        <p>
-          <span className="font-bold">{name}</span> asks:
-        </p>
+        <img src={avatar} alt={`Avatar of ${name}`} className="h-20 w-1/5" />
+        <div className="w-4/5">
+          <p>
+            <span className="font-bold italic">{name}</span> asks:
+          </p>
+          <p>Would you rather?</p>
+          <p>
+            <span className="font-bold text-xl">{optionOne}</span> or...
+          </p>
+        </div>
       </div>
-      <p>Would you rather?</p>
-      <p>{optionOne} or...</p>
+
       <button className="bg-pink-600 text-white font-bold rounded-lg mt-5 py-2 flex justify-center">
         Answer Poll
         <svg
