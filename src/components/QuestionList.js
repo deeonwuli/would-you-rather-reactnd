@@ -1,8 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import Question from "./Question";
+import { CircularProgress } from "@material-ui/core";
 
 function QuestionList(props) {
+  console.log(props.questionIds)
+  if (props.questionIds.length === 0) {
+    return (
+      <div className="flex h-screen items-center justify-center text-pink-100">
+        <CircularProgress color="inherit" size={100} />
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col justify-center items-center w-screen h-full p-5">
       <h3 className="font-bold text-xl">Your Questions</h3>
