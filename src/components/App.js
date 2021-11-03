@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import QuestionList from "./QuestionList"
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
+import Home from "./Home";
 
 function App(props) {
   useEffect(() => {
@@ -9,7 +9,9 @@ function App(props) {
   });
 
   return (
-    <QuestionList />
+    <div className="flex items-center justify-center">
+      <Home />
+    </div>
   );
 }
 

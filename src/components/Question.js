@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 
 function Question(props) {
-  console.log(props);
   const { question } = props;
 
   if (question === null) {
