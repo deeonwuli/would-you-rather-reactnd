@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./Header";
 import QuestionList from "./QuestionList";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-wrap justify-center items-center w-full md:w-1/2">
+      <Header />
       <div className="w-full">
         <ul
           className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row mx-5"
