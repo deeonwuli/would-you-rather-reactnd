@@ -4,6 +4,7 @@ import { handleInitialData } from "../actions/shared";
 import Home from "./Home";
 import { Route } from "react-router";
 import NewTweet from "./NewQuestion";
+import Leaderboard from "./Leaderboard";
 import Login from "./Login";
 
 function App(props) {
@@ -26,6 +27,9 @@ function App(props) {
       )}
       <Route path="/new-question">
         <NewTweet />
+      </Route>
+      <Route path="/leaderboard">
+        <Leaderboard />
       </Route>
     </div>
   );
