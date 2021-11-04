@@ -1,7 +1,8 @@
-import { saveQuestion } from "../utils/api";
+import { saveQuestion, saveQuestionAnswer } from "../utils/api";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTIONS";
+export const ADD_ANSWER = "ADD_ANSWER";
 
 function addQuestion(question) {
   return {
@@ -18,6 +19,36 @@ export function handleAddQuestion(optionOne, optionTwo) {
       optionTwoText: optionTwo,
       author: authedUser,
     }).then((question) => dispatch(addQuestion(question)));
+  };
+}
+
+function addAnswer({ id, answer, authedUser }) {
+  return {
+    type: ADD_ANSWER,
+    answerInfo: {
+      id,
+      answer,
+      authedUser,
+    },
+  };
+}
+
+export function handleAddAnswer(id, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    return saveQuestionAnswer({
+      id,
+      answer,
+      authedUser,
+    }).then(() =>
+      dispatch(
+        addAnswer({
+          id: id,
+          answer: answer,
+          author: authedUser,
+        })
+      )
+    );
   };
 }
 

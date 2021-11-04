@@ -6,6 +6,7 @@ import { Route } from "react-router";
 import NewTweet from "./NewQuestion";
 import Leaderboard from "./Leaderboard";
 import Login from "./Login";
+import QuestionPage from "./QuestionPage";
 
 function App(props) {
   useEffect(() => {
@@ -27,6 +28,9 @@ function App(props) {
       )}
       <Route path="/new-question">
         <NewTweet />
+      </Route>
+      <Route path="/questions/:id">
+        <QuestionPage />
       </Route>
       <Route path="/leaderboard">
         <Leaderboard />
