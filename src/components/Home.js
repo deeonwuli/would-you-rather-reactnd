@@ -6,9 +6,9 @@ export default function Home() {
   const [openTab, setOpenTab] = useState(1);
 
   return (
-    <div className="flex flex-wrap justify-center items-center w-full md:w-1/2">
+    <div className="flex flex-col container items-center">
       <Header />
-      <div className="w-full">
+      <div className="w-1/2">
         <ul
           className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row mx-5"
           role="tablist"
