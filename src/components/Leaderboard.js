@@ -9,14 +9,14 @@ function Leaderboard(props) {
     <div className="flex flex-col container items-center">
       <Header />
 
-      <div className="flex flex-col justify-center rounded-lg shadow-xl w-full md:w-1/2 my-10 p-10 space-y-3">
+      <div className="flex flex-col justify-center rounded-lg md:shadow-xl w-full md:w-1/2 my-10 p-10 space-y-3">
         <p className="font-bold text-2xl border-b border-pink-600 py-2 mb-5">
           Leaderboard
         </p>
         <ul className="flex flex-col items-center space-y-10">
           {userIds.map((user) => (
             <li
-              className="bg-pink-100 p-5 rounded-xl shadow-xl flex flex-col justify-center text-center h-40 w-4/5 px-5"
+              className="bg-pink-100 rounded-xl shadow-xl flex flex-col justify-center text-center h-auto w-full md:w-4/5 px-2 md:px-5 py-10 md:p-5"
               key={user.id}
             >
               <div className="flex items-center justify-between">

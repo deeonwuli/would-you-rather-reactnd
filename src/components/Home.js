@@ -8,11 +8,11 @@ function Home(props) {
   const { answeredIds, unansweredIds } = props;
 
   return (
-    <div className="flex flex-col container items-center">
+    <div className="flex flex-col container items-center w-full">
       <Header />
-      <div className="w-1/2">
+      <div className="w-full md:w-1/2">
         <ul
-          className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row mx-5"
+          className="flex mb-0 list-none  pt-3 pb-4 flex-row mx-5"
           role="tablist"
         >
           <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">

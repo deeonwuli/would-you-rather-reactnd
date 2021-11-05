@@ -11,8 +11,8 @@ function Header(props) {
   };
 
   return (
-    <div className="w-screen h-20 flex justify-between items-center shadow-xl px-5 mb-3">
-      <div className="flex justify-between w-1/4">
+    <div className="w-screen h-32 md:h-20 flex flex-col md:flex-row justify-between items-center shadow-xl p-5 mb-3">
+      <div className="flex justify-between w-full md:w-1/4 order-2 md:order-1">
         <NavLink exact activeClassName="active" to="/">
           Home
         </NavLink>
@@ -23,7 +23,7 @@ function Header(props) {
           Leaderboard
         </NavLink>
       </div>
-      <div className="flex justify-end items-center space-x-10">
+      <div className="flex justify-between md:justify-end items-center space-x-10 order-1 md:order-2 w-full mb-3 md:mb-0">
         <div className="flex items-center space-x-3">
           <p className="font-bold">{user.name}</p>
           <img
