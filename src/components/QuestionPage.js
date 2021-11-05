@@ -17,7 +17,11 @@ function QuestionPage(props) {
         <p className="font-bold text-2xl border-b border-pink-600 py-2 mb-5">
           Would you rather?
         </p>
-        {answers.hasOwnProperty(id) ? <Answered id={id} /> : <Unanswered id={id} />}
+        {answers.hasOwnProperty(id) ? (
+          <Answered id={id} />
+        ) : (
+          <Unanswered id={id} />
+        )}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ function Header(props) {
   };
 
   return (
-    <div className="container h-20 flex justify-between items-center shadow-xl px-5 mb-3">
+    <div className="w-screen h-20 flex justify-between items-center shadow-xl px-5 mb-3">
       <div className="flex justify-between w-1/4">
         <NavLink exact activeClassName="active" to="/">
           Home

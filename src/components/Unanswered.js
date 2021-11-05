@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Page404 from "./404page";
 import { connect } from "react-redux";
 import { handleAddAnswer } from "../actions/questions";
 
@@ -8,15 +9,19 @@ function Unanswered(props) {
   const { name, avatarURL } = user;
   const { optionOne, optionTwo } = question;
 
-  const handleChange = (event) => {
-    setSelected(event.target.value)
+  if (question === null) {
+    return <Page404 />;
   }
+
+  const handleChange = (event) => {
+    setSelected(event.target.value);
+  };
 
   const handleSubmit = (event, id) => {
     event.preventDefault();
-    const {dispatch} = props
+    const { dispatch } = props;
     if (selected !== "") {
-      dispatch(handleAddAnswer(id, selected))
+      dispatch(handleAddAnswer(id, selected));
     }
   };
 
@@ -25,14 +30,29 @@ function Unanswered(props) {
       <img src={avatarURL} className="h-32" alt={`Avatar of ${name}`} />
       <div className="w-4/5 flex flex-col justify-center items-center">
         <p className="font-bold text-xl">{name} asks</p>
-        <form className="flex flex-col justify-center items-center text-lg" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col justify-center items-center text-lg"
+          onSubmit={handleSubmit}
+        >
           <label>
-            <input name="option" type="radio" value={optionOne.text} className="mr-3" onChange={handleChange} />
+            <input
+              name="option"
+              type="radio"
+              value={optionOne}
+              className="mr-3"
+              onChange={handleChange}
+            />
             <span>{optionOne.text}</span>
           </label>
           <p>or</p>
           <label>
-            <input name="option" type="radio" value={optionTwo.text} className="mr-3" onChange={handleChange} />
+            <input
+              name="option"
+              type="radio"
+              value={optionTwo}
+              className="mr-3"
+              onChange={handleChange}
+            />
             <span>{optionTwo.text}</span>
           </label>
           <button

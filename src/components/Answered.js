@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import Page404 from "./404page";
 
 function Answered(props) {
   const { user, question, authedUser } = props;
+  console.log(question)
+
+  if (question === null) {
+    return <Page404 />
+  }
 
   const { name, avatarURL } = user;
   const { optionOne, optionTwo } = question;
