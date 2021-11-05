@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import QuestionList from "./QuestionList";
+import { connect } from "react-redux";
 
-export default function Home() {
+function Home(props) {
   const [openTab, setOpenTab] = useState(1);
+  const { answeredIds, unansweredIds } = props;
 
   return (
     <div className="flex flex-col container items-center">
@@ -57,12 +59,10 @@ export default function Home() {
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <QuestionList />
+                <QuestionList listIds={unansweredIds} />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <p className="font-bold text-xl text-center">
-                  No unanswered questions? Go ahead and answer one.
-                </p>
+                <QuestionList listIds={answeredIds} />
               </div>
             </div>
           </div>
@@ -71,3 +71,20 @@ export default function Home() {
     </div>
   );
 }
+
+function mapStateToProps({ authedUser, questions, users }) {
+  const answeredIds = Object.keys(questions)
+    .filter((id) => users[authedUser].answers.hasOwnProperty(id))
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp);
+
+  const unansweredIds = Object.keys(questions)
+    .filter((id) => !users[authedUser].answers.hasOwnProperty(id))
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp);
+
+  return {
+    answeredIds,
+    unansweredIds,
+  };
+}
+
+export default connect(mapStateToProps)(Home);

@@ -13,7 +13,7 @@ function Question(props) {
   const { name, avatar, optionOne, id } = question;
 
   return (
-    <div className="bg-pink-100 my-5 p-5 rounded-xl shadow-xl flex flex-col justify-center text-center h-52">
+    <div className="bg-pink-100 my-5 p-5 rounded-xl shadow-xl flex flex-col justify-center text-center h-52 w-96">
       <div className="flex items-center justify-between">
         <img src={avatar} alt={`Avatar of ${name}`} className="h-20 w-1/5" />
         <div className="w-4/5">
