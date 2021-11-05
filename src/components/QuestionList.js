@@ -2,7 +2,7 @@ import React from "react";
 import Question from "./Question";
 
 function QuestionList(props) {
-  const { listIds } = props;
+  const { listIds, buttonText } = props;
 
   return (
     <div className="flex flex-col justify-center items-center container h-full p-5">
@@ -10,7 +10,7 @@ function QuestionList(props) {
         {listIds.length ? (
           listIds.map((id) => (
             <li key={id}>
-              <Question id={id} />
+              <Question id={id} buttonText={buttonText} />
             </li>
           ))
         ) : (

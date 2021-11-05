@@ -59,10 +59,10 @@ function Home(props) {
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <QuestionList listIds={unansweredIds} />
+                <QuestionList listIds={unansweredIds} buttonText="Answer Poll" />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <QuestionList listIds={answeredIds} />
+                <QuestionList listIds={answeredIds} buttonText="View Results" />
               </div>
             </div>
           </div>

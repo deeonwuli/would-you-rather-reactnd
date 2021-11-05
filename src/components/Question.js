@@ -4,7 +4,7 @@ import { formatQuestion } from "../utils/helpers";
 import { Link } from "react-router-dom";
 
 function Question(props) {
-  const { question } = props;
+  const { question, buttonText } = props;
 
   if (question === null) {
     return <p>This question does not exist!</p>;
@@ -28,7 +28,7 @@ function Question(props) {
       </div>
       <Link to={`/questions/${id}`} className="flex justify-center">
         <button className="bg-pink-600 text-white font-bold rounded-lg mt-5 py-2 w-full flex justify-center">
-          <span>Answer Poll</span>
+          <span>{buttonText}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6 ml-5"
