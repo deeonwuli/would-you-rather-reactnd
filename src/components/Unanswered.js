@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { handleAddAnswer } from "../actions/questions";
+import { Redirect } from "react-router-dom";
 
 function Unanswered(props) {
   const [selected, setSelected] = useState();
+
   const { user, question, dispatch } = props;
+  if (question === null) return <Redirect to="/404" />;
   const { name, avatarURL } = user;
   const { optionOne, optionTwo, id } = question;
 
