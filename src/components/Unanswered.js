@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Page404 from "./404page";
 import { connect } from "react-redux";
 import { handleAddAnswer } from "../actions/questions";
 
@@ -8,10 +7,6 @@ function Unanswered(props) {
   const { user, question, dispatch } = props;
   const { name, avatarURL } = user;
   const { optionOne, optionTwo, id } = question;
-
-  if (question === null) {
-    return <Page404 />;
-  }
 
   const handleChange = (event) => {
     setSelected(event.target.value);

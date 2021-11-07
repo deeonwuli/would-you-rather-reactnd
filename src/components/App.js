@@ -9,8 +9,6 @@ function App(props) {
     props.dispatch(handleInitialData());
   });
 
-  console.log(props)
-
   const { authedUser } = props;
   return <div className="flex flex-col items-center">{!authedUser ? <Login /> : <ProtectedRoutes />}</div>;
 }
