@@ -5,9 +5,9 @@ import { handleAddAnswer } from "../actions/questions";
 
 function Unanswered(props) {
   const [selected, setSelected] = useState();
-  const { user, question } = props;
+  const { user, question, dispatch } = props;
   const { name, avatarURL } = user;
-  const { optionOne, optionTwo } = question;
+  const { optionOne, optionTwo, id } = question;
 
   if (question === null) {
     return <Page404 />;
@@ -17,9 +17,8 @@ function Unanswered(props) {
     setSelected(event.target.value);
   };
 
-  const handleSubmit = (event, id) => {
+  const handleSubmit = (id, event) => {
     event.preventDefault();
-    const { dispatch } = props;
     if (selected !== "") {
       dispatch(handleAddAnswer(id, selected));
     }
@@ -32,13 +31,13 @@ function Unanswered(props) {
         <p className="font-bold text-xl">{name} asks</p>
         <form
           className="flex flex-col justify-center items-center text-lg"
-          onSubmit={handleSubmit}
+          onSubmit={(event) => handleSubmit(id, event)}
         >
           <label>
             <input
               name="option"
               type="radio"
-              value={optionOne}
+              value="optionOne"
               className="mr-3"
               onChange={handleChange}
             />
@@ -49,7 +48,7 @@ function Unanswered(props) {
             <input
               name="option"
               type="radio"
-              value={optionTwo}
+              value="optionTwo"
               className="mr-3"
               onChange={handleChange}
             />

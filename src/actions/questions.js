@@ -22,30 +22,30 @@ export function handleAddQuestion(optionOne, optionTwo) {
   };
 }
 
-function addAnswer({ id, answer, authedUser }) {
+function addAnswer({ qid, answer, authedUser }) {
   return {
     type: ADD_ANSWER,
     answerInfo: {
-      id,
+      qid,
       answer,
       authedUser,
     },
   };
 }
 
-export function handleAddAnswer(id, answer) {
+export function handleAddAnswer(qid, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
     return saveQuestionAnswer({
-      id,
+      qid,
       answer,
       authedUser,
     }).then(() =>
       dispatch(
         addAnswer({
-          id: id,
-          answer: answer,
-          author: authedUser,
+          qid,
+          answer,
+          authedUser,
         })
       )
     );
