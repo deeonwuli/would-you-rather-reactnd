@@ -53,7 +53,7 @@ function Header(props) {
           </svg>
         </button>
       </div>
-      <style jsx>
+      <style jsx="true">
         {`
           .active {
             font-weight: 600;
