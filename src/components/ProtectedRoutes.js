@@ -12,7 +12,7 @@ export default function ProtectedRoutes() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/questions/:id" component={QuestionPage} />
-        <Route path="/new-question" component={NewQuestion} />
+        <Route path="/add" component={NewQuestion} />
         <Route path="/leaderboard" component={Leaderboard} />
         <Route component={Page404} />
       </Switch>
