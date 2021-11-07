@@ -16,7 +16,7 @@ function Header(props) {
         <NavLink exact activeClassName="active" to="/">
           Home
         </NavLink>
-        <NavLink activeClassName="active" to="/new-question">
+        <NavLink activeClassName="active" to="/add">
           New Question
         </NavLink>
         <NavLink activeClassName="active" to="/leaderboard">
