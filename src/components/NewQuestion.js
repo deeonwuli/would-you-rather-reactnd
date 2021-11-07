@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { handleAddQuestion } from "../actions/questions";
 import { connect } from "react-redux";
 import Header from "../components/Header";
+import { Redirect } from "react-router";
 
 function NewTweet(props) {
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
+  const [goHome, setGoHome] = useState(false);
 
   const handleChange1 = (event) => {
     setOptionOne(event.target.value);
@@ -21,7 +23,12 @@ function NewTweet(props) {
     dispatch(handleAddQuestion(optionOne, optionTwo));
     setOptionOne("");
     setOptionTwo("");
+    setGoHome(true);
   };
+
+  if (goHome === true) {
+    return <Redirect to="/" />
+  }
 
   return (
     <div className="flex flex-col container items-center">
